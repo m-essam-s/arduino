@@ -1,0 +1,192 @@
+{
+    "version": 1,
+    "author": "Mohamed Essam",
+    "editor": "wokwi",
+    "parts": [
+        {
+            "type": "wokwi-breadboard",
+            "id": "bb1",
+            "top": -223.8,
+            "left": -208.4,
+            "attrs": {}
+        },
+        {
+            "type": "wokwi-arduino-uno",
+            "id": "uno",
+            "top": 87,
+            "left": -221.4,
+            "attrs": {}
+        },
+        {
+            "type": "wokwi-max7219-matrix",
+            "id": "matrix1",
+            "top": 106.2,
+            "left": 90.21,
+            "attrs": {
+                "chain": "1"
+            }
+        },
+        {
+            "type": "wokwi-analog-joystick",
+            "id": "joystick1",
+            "top": 66.6,
+            "left": 312.6,
+            "attrs": {}
+        },
+        {
+            "type": "wokwi-potentiometer",
+            "id": "pot1",
+            "top": 75.5,
+            "left": 451,
+            "attrs": {}
+        }
+    ],
+    "connections": [
+        [
+            "uno:GND.2",
+            "bb1:bn.1",
+            "black",
+            [
+                "v38.3",
+                "h-207.3",
+                "v-9.6"
+            ]
+        ],
+        [
+            "uno:5V",
+            "bb1:bp.1",
+            "red",
+            [
+                "v28.7",
+                "h-188.2",
+                "v-259.2"
+            ]
+        ],
+        [
+            "matrix1:V+",
+            "bb1:bp.5",
+            "red",
+            [
+                "h57.6",
+                "v-86.4",
+                "h-374.4",
+                "v-37.5"
+            ]
+        ],
+        [
+            "matrix1:GND",
+            "bb1:bn.5",
+            "black",
+            [
+                "h48",
+                "v-86.4",
+                "h-373.6"
+            ]
+        ],
+        [
+            "matrix1:DIN",
+            "uno:12",
+            "green",
+            [
+                "h38.4",
+                "v-86.4",
+                "h-326.9"
+            ]
+        ],
+        [
+            "matrix1:CS",
+            "uno:11",
+            "green",
+            [
+                "h28.8",
+                "v-86.4",
+                "h-307.8"
+            ]
+        ],
+        [
+            "matrix1:CLK",
+            "uno:10",
+            "green",
+            [
+                "h19.2",
+                "v-86.4",
+                "h-288.7"
+            ]
+        ],
+        [
+            "joystick1:VCC",
+            "bb1:bp.10",
+            "red",
+            [
+                "v9.6",
+                "h-57.6",
+                "v-182.4",
+                "h-345.6",
+                "v-47.1"
+            ]
+        ],
+        [
+            "joystick1:GND",
+            "bb1:bn.10",
+            "black",
+            [
+                "v19.2",
+                "h-105.6",
+                "v-182.4",
+                "h-344.8"
+            ]
+        ],
+        [
+            "pot1:VCC",
+            "bb1:bp.15",
+            "red",
+            [
+                "v28.8",
+                "h-68",
+                "v-182.4",
+                "h-432",
+                "v-28.8"
+            ]
+        ],
+        [
+            "bb1:bn.15",
+            "pot1:GND",
+            "black",
+            [
+                "v27.5",
+                "h431.2",
+                "v182.4",
+                "h57.6"
+            ]
+        ],
+        [
+            "pot1:SIG",
+            "uno:A5",
+            "magenta",
+            [
+                "v163.2",
+                "h-461.2"
+            ]
+        ],
+        [
+            "uno:A2",
+            "joystick1:HORZ",
+            "green",
+            [
+                "v57.5",
+                "h359.2",
+                "v-153.6"
+            ]
+        ],
+        [
+            "joystick1:VERT",
+            "uno:A3",
+            "green",
+            [
+                "v144",
+                "h-336"
+            ]
+        ]
+    ],
+    "dependencies": {}
+}
