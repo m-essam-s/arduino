@@ -12,17 +12,16 @@ char keys[ROWS][COLS] = {
   {'*', '0', '#', 'D'}  // use D for left
 };
 
-byte rowPins[ROWS] = {5, 6, 7, 8};
-byte colPins[COLS] = {2, 3, 4};
+byte rowPins[ROWS] = {6, 7, 8, 9};
+byte colPins[COLS] = {2, 3, 4, 5};
 
 Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 
 // Define the pins for the motor
-
-int motor1Pin1 = 9;
-int motor1Pin2 = 10;
-int motor2Pin1 = 11;
-int motor2Pin2 = 12;
+int motor1Pin1 = 10;
+int motor1Pin2 = 11;
+int motor2Pin1 = 12;
+int motor2Pin2 = 13;
 
 void setup() {
     // Set the motor pins as output
@@ -31,24 +30,29 @@ void setup() {
     pinMode(motor2Pin1, OUTPUT);
     pinMode(motor2Pin2, OUTPUT);
 
-    // Set the motor pins to low
-    digitalWrite(motor1Pin1, LOW);
+    stopMotors();
 }
 
 void loop() {
     char key = keypad.getKey();
-
-    if (key == 'A') {
+    switch (key){
+    case 'A':
         moveForward();
-    } else if (key == 'B') {
+        break;
+    case 'B':
         moveBackward();
-    } else if (key == 'C') {
+        break;
+    case 'C':
         moveRight();
-    } else if (key == 'D') {
+        break;
+    case 'D':
         moveLeft();
-    } else {
+        break;
+    
+    default:
         stopMotors();
-    } 
+        break;
+    }
 }
 
 void moveForward() {
