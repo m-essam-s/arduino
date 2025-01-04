@@ -13,22 +13,20 @@ char kyes[ROWS][COLS]={
     {'*', '0', '#'}
 }
 
-byte rowPins[ROWS] = {5, 6, 7, 8}
-byte colPins[COLS] = {2, 3, 4}
+byte rowPins[ROWS] = {5, 6, 7, 8};
+byte colPins[COLS] = {2, 3, 4};
 
 Keypad keypad = Keypade(makekeymap(keys), rowPins, colPins, ROWS, COLS );
 
 char Pass [6];
-char storedPass [] = "123456"
+char storedPass [] = "123456";
 
 int i = 0;
 int count = 0;
 
 void setup(){
     lcd.begin(16, 2);
-    lcd.setCursor(0, 0);
-    lcd.print("Enter The Pass");
-    lcd.setCursor(0, 1);
+    initProgram();
 }
 
 void loop(){
@@ -45,36 +43,38 @@ void loop(){
                 }   
             }
             if (count == 6){
-                lcd.clear();
-                lcd.setCursor(0, 0);
-                lcd.print("Correct Pass     ");
-                delay(2000);
-                i = 0;
-                count = 0;
-                lcd.setCursor(0, 0);
-                lcd.print("Enter The Pass");
-                lcd.setCursor(0, 1);
+                correctPass();
             }else{
-                lcd.clear();
-                lcd.setCursor(0, 0);
-                lcd.print("Wrong Pass     ");
-                delay(2000);
-                i = 0;
-                count = 0;
-                lcd.setCursor(0, 0);
-                lcd.print("Enter The Pass");
-                lcd.setCursor(0, 1);
+                wrongPass();
             }
         }else{
-            lcd.clear();
-            lcd.setCursor(0, 0);
-            lcd.print("Wrong Pass     ");
-            delay(2000);
-            i = 0;
-            count = 0;
-            lcd.setCursor(0, 0);
-            lcd.print("Enter The Pass");
-            lcd.setCursor(0, 1);
+            wrongPass();
         }
     }
+}
+
+void initProgram(){
+    lcd.setCursor(0, 0);
+    lcd.print("Enter The Pass");
+    lcd.setCursor(0, 1);
+}
+
+void correctPass () {
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("Correct Pass     ");
+    delay(2000);
+    i = 0;
+    count = 0;
+    initProgram();
+}
+
+void wrongPass(){
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("Wrong Pass     ");
+    delay(2000);
+    i = 0;
+    count = 0;
+    initProgram();
 }
